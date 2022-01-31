@@ -1,0 +1,24 @@
+{
+	"name": "library-crud",
+	"version": "1.0.0",
+	"description": "Aplicación tipo CRUD con tematica de biblioteca",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon index.js",
+		"start": "node index.js",
+		"lint": "eslint"
+	},
+	"keywords": [],
+	"author": "Fabián Sánchez, Jose Muñoz y Sheyla Vergara",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.8.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"nodemon": "^2.0.15",
+		"prettier": "^2.5.1"
+	},
+	"dependencies": {
+		"express": "^4.17.2"
+	}
+}
