@@ -3,7 +3,6 @@ const Joi = require('joi');
 const id = Joi.number().integer();
 
 const name = Joi.string()
-	.alphanum()
 	.min(3)
 	.max(50);
 
@@ -11,7 +10,6 @@ const description = Joi.string()
 	.description();
 
 const author = Joi.string()
-	.alphanum()
 	.min(3)
 	.max(50);
 
