@@ -1,27 +1,39 @@
+const boom = require('@hapi/boom');
 const { models } = require('../libs/sequilize');
 
 class BookService {
-	constructor() { };
+	constructor() {
+		this.booksModel = models.Book;
+	};
 
-	create() {
-
+	async create(data) {
+		const newBook = await this.booksModel.create(data);
+		return newBook.toJSON();
 	};
 
 	async find() {
-		const response = await models.Book.findAll();
-		console.log(response);
+		const books = await this.booksModel.findAll();
+		return books;
 	};
 
-	findOne() {
-
+	async findOne(id) {
+		const book = await this.booksModel.findByPk(id);
+		if(!book) {
+			throw boom.notFound('book not found');
+		}
+		return book;
 	};
 
-	update() {
-
+	async update(id, changes) {
+		const oldBook = await this.findOne(id);
+		const newBook = await oldBook.update(changes);
+		return newBook;
 	};
 
-	delete() {
-
+	async delete(id) {
+		const book = await this.findOne(id);
+		await book.destroy();
+		return { id, };
 	};
 };
 

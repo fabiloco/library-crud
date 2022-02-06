@@ -6,8 +6,7 @@ const name = Joi.string()
 	.min(3)
 	.max(50);
 
-const description = Joi.string()
-	.description();
+const description = Joi.string();
 
 const author = Joi.string()
 	.min(3)
@@ -28,7 +27,6 @@ const createBookSchema = Joi.object({
 });
 
 const updateBookSchema = Joi.object({
-	id: id.required(),
 	name: name,
 	description: description,
 	author: author,
