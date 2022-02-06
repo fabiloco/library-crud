@@ -15,5 +15,6 @@ CREATE TABLE books(
 	description TEXT NOT NULL DEFAULT 'Sin descripcion',
 	price FLOAT CHECK(price > 0),
 	author VARCHAR(50) NOT NULL,
-	page_num INTEGER NOT NULL
+	page_num INTEGER NOT NULL,
+	created_at TIMESTAMP DEFAULT NOW()
 );
