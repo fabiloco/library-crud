@@ -11,7 +11,7 @@ const app = express();
 const port = 3000;
 
 // Access whitelist
-const whitelist = ['http://localhost:3001'];
+const whitelist = ['http://localhost:3000'];
 
 // CORS options
 const options = {
@@ -25,7 +25,8 @@ const options = {
 };
 
 app.use(express.json());
-app.use(cors(options));
+// app.use(cors(options));
+app.use(cors());
 
 // Routes
 routesApi(app);
