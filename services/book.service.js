@@ -6,11 +6,6 @@ class BookService {
 		this.booksModel = models.Book;
 	};
 
-	async create(data) {
-		const newBook = await this.booksModel.create(data);
-		return newBook.toJSON();
-	};
-
 	async find() {
 		const books = await this.booksModel.findAll();
 		return books;
@@ -23,6 +18,12 @@ class BookService {
 		}
 		return book;
 	};
+
+	async create(data) {
+		const newBook = await this.booksModel.create(data);
+		return newBook.toJSON();
+	};
+
 
 	async update(id, changes) {
 		const oldBook = await this.findOne(id);

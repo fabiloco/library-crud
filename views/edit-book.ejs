@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Editar libro</h1>
+	<a href="/">ir atras</a>
+	<form action="/update-book/<%- book.id %>" method="post">
+		<label for="name">nombre</label>
+		<input required id="name" name="name" value="<%- book.name %>" type="text"/>
+
+		<label for="description">descripcion</label>
+		<input required id="description" name="description" value="<%- book.description %>" type="text"/>
+
+		<label for="author">autor</label>
+		<input required id="author" name="author" value="<%- book.author %>" type="text"/>
+
+		<label for="price">precio</label>
+		<input required id="price" name="price" value="<%- book.price %>" type="text"/>
+
+		<label for="pageNum">numero de paginas</label>
+		<input required id="pageNum" name="pageNum" value="<%- book.pageNum %>"  type="text"/>
+
+		<button type="submit">Crear</button>
+	</form>
+</body>
+</html>
