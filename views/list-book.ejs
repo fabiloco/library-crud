@@ -4,17 +4,62 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<title>Lista de libros</title>
 </head>
 <body>
-	<h1>Lista de libros</h1>
-	<a href="/new-book">Crear nuevo libro</a>
-	<ul>
-		<% books.forEach((book) => { %>
-			<li>
-				<%- book.id %> - <%- book.name %> - <%- book.author %> <a href="edit-book/<%- book.id %>">Editar</a> <a href="delete/<%- book.id %>">Borrar</a href="api/v1/">
-			</li>
-	  	<% }); %>
-	</ul>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">
+			<img style="width: 100px;" src="https://anthoncode.com/wp-content/uploads/2019/01/nodejs-logo-png.png" alt="nodejs logo">
+			CRUD NodeJS
+		</a>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+
+	<div class="container">
+
+		<h1 class="mt-5">Lista de libros</h1>
+
+        <br/>
+        <br/>
+		<a class="btn btn-primary" href="/new-book">Crear nuevo libro</a>
+        <br/>
+        <br/>
+
+        <table class="table table-striped table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Autor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+				<% books.forEach((book) => { %>
+					<tr>
+                        <td> <%- book.id %> </td>
+                        <td> <%- book.name %> </td>
+                        <td> <%- book.author %> </td>
+                        <td>
+							<a class="btn btn-success" href="view-book/<%- book.id %>">
+								Ver
+							</a>
+							<a class="btn btn-primary" href="edit-book/<%- book.id %>">
+								Editar
+							</a>
+							<a class="btn btn-danger" href="delete/<%- book.id %>">
+								Borrar
+							</a href="api/v1/">
+						</td>
+                    </tr>
+				  <% }); %>
+            </tbody>
+        </table>
+
+    </div>
 </body>
 </html>

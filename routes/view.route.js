@@ -43,7 +43,21 @@ router.post('/create-new-book',
 	},
 );
 
-// Ruta para renderizar la página de nuevo libro
+// Ruta para renderizar la página de ver libro
+router.get('/view-book/:id',
+	validatorHandler(getBookSchema, 'params'),
+	async (req, res, next) => {
+		try {
+			const { id } = req.params;
+			const book = await service.findOne(id);
+			res.render('view-book', { book: book });
+		} catch(error) {
+			next(error);
+		};
+	},
+);
+
+// Ruta para renderizar la página de editar libro
 router.get('/edit-book/:id',
 	validatorHandler(getBookSchema, 'params'),
 	async (req, res, next) => {
@@ -66,7 +80,7 @@ router.post('/update-book/:id',
 			const { id } = req.params;
 			const body = req.body;
 			const updatedBook = await service.update(id, body);
-			res.json(updatedBook);
+			res.redirect('/');
 		}catch(error) {
 			next(error);
 		};

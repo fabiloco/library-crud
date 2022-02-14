@@ -15,35 +15,33 @@
 		</a>
     </nav>
 	<div class="container">
-		<h1 class="mt-5 mb-5">Editar libro</h1>
+		<h1 class="mt-5 mb-5">Ver libro</h1>
 		<a class="btn btn-primary mb-3" href="/">Atras</a>
 		<form action="/update-book/<%- book.id %>" method="post">
 			<div class="mb-3">
 				<label class="form-label" for="name">Nombre</label>
-				<input class="form-control" required id="name" name="name" value="<%- book.name %>" type="text"/>
+				<input class="form-control" required disabled id="name" name="name" value="<%- book.name %>" type="text"/>
 			</div>
 
 			<div class="mb-3">
 				<label class="form-label" for="description">Descripcion</label>
-				<input class="form-control" required id="description" name="description" value="<%- book.description %>" type="text"/>
+				<input class="form-control" required disabled id="description" name="description" value="<%- book.description %>" type="text"/>
 			</div>
 
 			<div class="mb-3">
 				<label class="form-label" for="author">Autor</label>
-				<input class="form-control" required id="author" name="author" value="<%- book.author %>" type="text"/>
+				<input class="form-control" required disabled id="author" name="author" value="<%- book.author %>" type="text"/>
 			</div>
 
 			<div class="mb-3">
 				<label class="form-label" for="price">Precio</label>
-				<input class="form-control" required id="price" name="price" value="<%- book.price %>" type="text"/>
+				<input class="form-control" required disabled id="price" name="price" value="<%- book.price %>" type="text"/>
 			</div>
 
 			<div class="mb-3">
 				<label class="form-label" for="pageNum">Numero de paginas</label>
-				<input class="form-control" required id="pageNum" name="pageNum" value="<%- book.pageNum %>"  type="text"/>
+				<input class="form-control" disabled required id="pageNum" name="pageNum" value="<%- book.pageNum %>"  type="text"/>
 			</div>
-
-			<button class="btn btn-success" type="submit">Crear</button>
 		</form>
 	</div>
 </body>

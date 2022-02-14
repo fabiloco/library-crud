@@ -4,28 +4,49 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Nuevo libro</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
-	<h1>Nuevo libro</h1>
-	<a href="/">ir atras</a>
-	<form action="/create-new-book" method="post">
-		<label for="name">nombre</label>
-		<input required id="name" name="name" type="text"/>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">
+			<img style="width: 100px;" src="https://anthoncode.com/wp-content/uploads/2019/01/nodejs-logo-png.png" alt="nodejs logo">
+			CRUD NodeJS
+		</a>
+    </nav>
+	<div class="container">
+		<h1 class="mt-5 mb-5">Nuevo libro</h1>
+		<a class="btn btn-primary mb-3" href="/">Atras</a>
 
-		<label for="description">descripcion</label>
-		<input required id="description" name="description" type="text"/>
 
-		<label for="author">autor</label>
-		<input required id="author" name="author" type="text"/>
+		<form action="/create-new-book" method="post">
+			<div class="mb-3">
+				<label class="form-label" for="name">Nombre</label>
+				<input class="form-control" required id="name" name="name" type="text"/>
+			</div>
 
-		<label for="price">precio</label>
-		<input required id="price" name="price" type="text"/>
+			<div class="mb-3">
+				<label class="form-label" for="description">Descripcion</label>
+				<input class="form-control" required id="description" name="description" type="text"/>
+			</div>
 
-		<label for="pageNum">numero de paginas</label>
-		<input required id="pageNum" name="pageNum" type="text"/>
+			<div class="mb-3">
+				<label class="form-label" for="author">Autor</label>
+				<input class="form-control" required id="author" name="author" type="text"/>
+			</div>
 
-		<button type="submit">Crear</button>
-	</form>
+			<div class="mb-3">
+				<label class="form-label" for="price">Precio</label>
+				<input class="form-control" required id="price" name="price" type="text"/>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label" for="pageNum">Numero de paginas</label>
+				<input class="form-control" required id="pageNum" name="pageNum" type="text"/>
+			</div>
+
+			<button class="btn btn-success" type="submit">Crear</button>
+		</form>
+	</div>
 </body>
 </html>
