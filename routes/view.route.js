@@ -1,4 +1,5 @@
 const express = require('express');
+const multer  = require('multer');
 
 const validatorHandler = require('../middlewares/validator.handler');
 const { getBookSchema, createBookSchema, updateBookSchema } = require('../schemas/book.schema');
@@ -8,6 +9,19 @@ const BookService = require('../services/book.service');
 const router = express.Router();
 
 const service = new BookService();
+
+
+// configuración de multer
+const storage = multer.diskStorage({
+	destination: function(req, file, cb) {
+		cb(null, 'uploads');
+	},
+	filename: function(req, file, cb)  {
+		cb(null, `${Date.now()}-${file.originalname}`);
+	},
+});
+
+const upload = multer({ storage: storage });
 
 // Este enrutador será usado solo por la interfaz, para servir los datos de manera dinamica
 
@@ -31,10 +45,12 @@ router.get('/new-book', (req, res, next) => {
 
 // Ruta para crear un nuevo libro
 router.post('/create-new-book',
+	upload.single('image'),
 	validatorHandler(createBookSchema, 'body'),
 	async (req, res, next) => {
 		try {
 			const { body } = req;
+			if(req.file) body.image = req.file.path;
 			const newBook = await service.create(body);
 			res.redirect('/');
 		}catch(error) {
@@ -75,10 +91,12 @@ router.get('/edit-book/:id',
 router.post('/update-book/:id',
 	validatorHandler(getBookSchema, 'params'),
 	validatorHandler(updateBookSchema, 'body'),
+	upload.single('image'),
 	async (req, res, next) => {
 		try {
 			const { id } = req.params;
 			const body = req.body;
+			if(req.file) body.image = req.file.path;
 			const updatedBook = await service.update(id, body);
 			res.redirect('/');
 		}catch(error) {

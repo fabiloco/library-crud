@@ -17,7 +17,7 @@
 	<div class="container">
 		<h1 class="mt-5 mb-5">Editar libro</h1>
 		<a class="btn btn-primary mb-3" href="/">Atras</a>
-		<form action="/update-book/<%- book.id %>" method="post">
+		<form action="/update-book/<%- book.id %>" method="post" enctype="multipart/form-data">
 			<div class="mb-3">
 				<label class="form-label" for="name">Nombre</label>
 				<input class="form-control" required id="name" name="name" value="<%- book.name %>" type="text"/>
@@ -25,7 +25,7 @@
 
 			<div class="mb-3">
 				<label class="form-label" for="description">Descripcion</label>
-				<input class="form-control" required id="description" name="description" value="<%- book.description %>" type="text"/>
+				<textarea class="form-control" required id="description" name="description" type="text"><%- book.description %></textarea>
 			</div>
 
 			<div class="mb-3">
@@ -39,8 +39,14 @@
 			</div>
 
 			<div class="mb-3">
-				<label class="form-label" for="pageNum">Numero de paginas</label>
-				<input class="form-control" required id="pageNum" name="pageNum" value="<%- book.pageNum %>"  type="text"/>
+				<label class="form-label" for="image">Numero de paginas</label>
+				<input class="form-control" required id="image" name="image" value="<%- book.pageNum %>"  type="text"/>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label" for="image">Portada</label>
+				<br>
+				<input id="image" name="image" type="file" accept="image/*"/>
 			</div>
 
 			<button class="btn btn-success" type="submit">Crear</button>

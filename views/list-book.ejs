@@ -33,6 +33,7 @@
             <thead class="thead">
                 <tr>
                     <th>ID</th>
+					<th>Portada</th>
                     <th>Nombre</th>
                     <th>Autor</th>
                     <th>Acciones</th>
@@ -42,6 +43,9 @@
 				<% books.forEach((book) => { %>
 					<tr>
                         <td> <%- book.id %> </td>
+						<td>
+							<img style="width: 50px; height: 80px; object-fit: cover;" src="<%- book.image %>" alt="<%- book.name %>">
+						</td>
                         <td> <%- book.name %> </td>
                         <td> <%- book.author %> </td>
                         <td>

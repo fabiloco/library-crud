@@ -10,7 +10,6 @@ const {
 } = require('./middlewares/error.handler');
 
 const cors = require('cors');
-const BookService = require('./services/book.service');
 
 // Configuraciones
 const app = express();
@@ -35,7 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(cors(options));
 app.use(cors());
 
-// app.use(express.static(__dirname + '/public'));
+app.use('/uploads', express.static('uploads'));
 
 // Configurando el motor de plantillas
 app.set('views', './views')

@@ -37,6 +37,13 @@ const BookSchema = {
 		type: DataTypes.INTEGER,
 	},
 
+	image: {
+		allowNull: true,
+		field: 'image',
+		type: DataTypes.STRING(250),
+		defaultValue: 'uploads/noimage.jpg',
+	},
+
 	createdAt: {
 		allowNull: true,
 		field: 'created_at',

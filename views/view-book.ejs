@@ -17,32 +17,35 @@
 	<div class="container">
 		<h1 class="mt-5 mb-5">Ver libro</h1>
 		<a class="btn btn-primary mb-3" href="/">Atras</a>
-		<form action="/update-book/<%- book.id %>" method="post">
-			<div class="mb-3">
-				<label class="form-label" for="name">Nombre</label>
-				<input class="form-control" required disabled id="name" name="name" value="<%- book.name %>" type="text"/>
-			</div>
+		<div class="row">
+			<img class="col-4" style="width: 100%; object-fit: cover;" src="../../<%- book.image %>" alt="<%- book.name %>">
+			<form class="col-8" action="/update-book/<%- book.id %>" method="post">
+				<div class="mb-3">
+					<label class="form-label" for="name">Nombre</label>
+					<input class="form-control" required disabled id="name" name="name" value="<%- book.name %>" type="text"/>
+				</div>
 
-			<div class="mb-3">
-				<label class="form-label" for="description">Descripcion</label>
-				<input class="form-control" required disabled id="description" name="description" value="<%- book.description %>" type="text"/>
-			</div>
+				<div class="mb-3">
+					<label class="form-label" for="description">Descripcion</label>
+					<textarea class="form-control" required disabled id="description" name="description" type="text"><%- book.description %></textarea>
+				</div>
 
-			<div class="mb-3">
-				<label class="form-label" for="author">Autor</label>
-				<input class="form-control" required disabled id="author" name="author" value="<%- book.author %>" type="text"/>
-			</div>
+				<div class="mb-3">
+					<label class="form-label" for="author">Autor</label>
+					<input class="form-control" required disabled id="author" name="author" value="<%- book.author %>" type="text"/>
+				</div>
 
-			<div class="mb-3">
-				<label class="form-label" for="price">Precio</label>
-				<input class="form-control" required disabled id="price" name="price" value="<%- book.price %>" type="text"/>
-			</div>
+				<div class="mb-3">
+					<label class="form-label" for="price">Precio</label>
+					<input class="form-control" required disabled id="price" name="price" value="<%- book.price %>" type="text"/>
+				</div>
 
-			<div class="mb-3">
-				<label class="form-label" for="pageNum">Numero de paginas</label>
-				<input class="form-control" disabled required id="pageNum" name="pageNum" value="<%- book.pageNum %>"  type="text"/>
-			</div>
-		</form>
+				<div class="mb-3">
+					<label class="form-label" for="pageNum">Numero de paginas</label>
+					<input class="form-control" disabled required id="pageNum" name="pageNum" value="<%- book.pageNum %>"  type="text"/>
+				</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
